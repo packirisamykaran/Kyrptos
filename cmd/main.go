@@ -10,10 +10,12 @@ func main() {
 		fmt.Fprintf(w, "Kryptos Backend is running!")
 	})
 
-	port := "8080" // Choose your desired port
-	fmt.Printf("Server is running on http://localhost:%s\n", port)
+	port := "8000" // You mentioned using port 8000
 
-	err := http.ListenAndServe(":"+port, nil)
+	serverAddr := fmt.Sprintf(":%s", port)
+	fmt.Printf("Server is running on http://localhost%s\n", serverAddr)
+
+	err := http.ListenAndServe(serverAddr, nil)
 	if err != nil {
 		fmt.Printf("Server error: %v", err)
 	}

@@ -1,0 +1,14 @@
+# air.toml
+
+# Entry point for your application
+# Replace 'main.go' with your actual entry point if different
+[[monitor]]
+name = "Kryptos"
+paths = ["."]
+
+# Specify the build and run commands
+# Replace 'go run main.go' with your actual run command
+[[run]]
+name = "Kryptos"
+cmd = "go"
+args = ["run", "cmd/main.go"]
