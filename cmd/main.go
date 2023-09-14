@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/packirisamykaran/kryptos/internal/services/whale"
 )
 
 func main() {
@@ -11,7 +13,7 @@ func main() {
 	})
 
 	port := "8000" // You mentioned using port 8000
-
+	whale.GetProtocolWhaleByAddress("Solend")
 	serverAddr := fmt.Sprintf(":%s", port)
 	fmt.Printf("Server is running on http://localhost%s\n", serverAddr)
 

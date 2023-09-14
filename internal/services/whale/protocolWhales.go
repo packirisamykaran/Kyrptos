@@ -10,7 +10,7 @@ func GetProtocolWhaleByAddress(protocol string) {
 	var limit = 10
 	var offset = 0
 
-	var query = fmt.Sprintf("%stokenAddress=%s&limit=%d&offset=%d", DefiProtocolAddressMap[protocol], protocol, limit, offset)
+	var query = fmt.Sprintf("%stokenAddress=%s&limit=%d&offset=%d", SolscanAPI, DefiProtocolAddressMap[protocol], limit, offset)
 
 	res, err := http.Get(query)
 	if err != nil {
