@@ -9,16 +9,19 @@ kryptos/
 │   ├── data/
 │   │   ├── databaseConnections.go   # Database connection
 │   │   └── databaseModels.go # schemas
-│   └── config/
-│       └── config.go     # Configuration settings
-├── services/                  # main services packages
-│   ├── bots/
-│   │   ├── twitter/      # Twitter bot related code
-│   │   ├── discord/      # Discord bot related code
-│   │   └── telegram/     # Telegram bot related code
-│   ├── whale/
-│   │   ├── protocolWhales.go # scrape whales by list of or individual protocol
-│   │   └── whaleHoldings.go   # scrape whale holdings 
+│   ├── config/
+│   │   └── config.go     # Configuration settings
+│   └── services/          # Service modules
+│       ├── bots/
+│       │   ├── twitter/  # Twitter bot related code
+│       │   ├── discord/  # Discord bot related code
+│       │   └── telegram/ # Telegram bot related code
+│       ├── whale/
+│       │   ├── protocolWhales.go # scrape whales by list of or individual protocol
+│       │   └── whaleHoldings.go   # scrape whale holdings
+│       └── structs/        # Service module's structs
+│           ├── botStructs.go      # Structs related to bots
+│           └── whaleStructs.go    # Structs related to whale services
 ├── scripts/              # Deployment scripts
 ├── tests/                # Unit and integration tests
 ├── .gitignore
