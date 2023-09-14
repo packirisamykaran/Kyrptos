@@ -24,6 +24,8 @@ kryptos/
 │           └── whaleStructs.go    # Structs related to whale services
 ├── scripts/              # Deployment scripts
 ├── tests/                # Unit and integration tests
+├── config/               # Configuration directory
+│   └── apiEndpoints.json # Configuration file with API endpoints
 ├── .gitignore
 ├── go.mod
 └── README.md
