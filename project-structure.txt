@@ -1,0 +1,26 @@
+kryptos/
+├── cmd/
+│   └── main.go           # Application entry point
+├── internal/
+│   ├── request/
+│   │   ├── handlers/     # Request handlers
+│   │   ├── middleware/   # Middleware for authentication, logging, etc.
+│   │   └── routes/       # API route definitions
+│   ├── data/
+│   │   ├── databaseConnections.go   # Database connection
+│   │   └── databaseModels.go # schemas
+│   └── config/
+│       └── config.go     # Configuration settings
+├── services/                  # main services packages
+│   ├── bots/
+│   │   ├── twitter/      # Twitter bot related code
+│   │   ├── discord/      # Discord bot related code
+│   │   └── telegram/     # Telegram bot related code
+│   ├── whale/
+│   │   ├── protocolWhales.go # scrape whales by list of or individual protocol
+│   │   └── whaleHoldings.go   # scrape whale holdings 
+├── scripts/              # Deployment scripts
+├── tests/                # Unit and integration tests
+├── .gitignore
+├── go.mod
+└── README.md
