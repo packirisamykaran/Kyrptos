@@ -30,7 +30,6 @@ func GetWhalesByProtocol(protocol string) []Whale {
 
 	resBodyByte, err := utils.GetRequestWithParams(SolscanAPI, params)
 	if err != nil {
-		fmt.Println("Error:", err)
 
 	}
 

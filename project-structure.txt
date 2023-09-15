@@ -11,9 +11,9 @@ kryptos/
 │   ├── data/
 │   │   ├── databaseConnections.go   # Database connection
 │   │   └── databaseModels.go # schemas
-│   ├── config/
-│   │   └── config.go     # Configuration settings
-│   └── services/          # Service modules
+│   ├── utils/            # Reusable functions
+│   │   └── errorHanldler.go     
+│   └── services/         # Service modules
 │       ├── bots/
 │       │   ├── twitter/  # Twitter bot related code
 │       │   ├── discord/  # Discord bot related code
