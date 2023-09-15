@@ -3,12 +3,16 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/packirisamykaran/kryptos/internal/services/whale"
 )
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "Kryptos Backend is running!")
 	})
+
+	whale.GetWhalesByProtocol("Solend")
 
 	port := "8000" // You mentioned using port 8000
 

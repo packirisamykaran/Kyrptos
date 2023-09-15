@@ -19,10 +19,11 @@ type WhaleByProtocolResponse struct {
 func GetWhalesByProtocol(protocol string) []Whale {
 	var limit = 10
 	var offset = 0
+	var protoclAddress = DefiProtocolAddressMap[protocol]
 	// var query = fmt.Sprintf("%stokenAddress=%s&limit=%d&offset=%d", SolscanAPI, DefiProtocolAddressMap[protocol], limit, offset)
 
 	params := map[string]string{
-		"tokenAddress": protocol,
+		"tokenAddress": protoclAddress,
 		"limit":        strconv.Itoa(limit),
 		"offset":       strconv.Itoa(offset),
 	}

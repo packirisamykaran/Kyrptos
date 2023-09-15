@@ -1,3 +1,5 @@
+Potential structure
+
 kryptos/
 ├── cmd/
 │   └── main.go           # Application entry point
