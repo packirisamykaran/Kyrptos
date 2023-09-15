@@ -1,0 +1,5 @@
+package whale
+
+func GetWhalesByProtocol() {
+
+}

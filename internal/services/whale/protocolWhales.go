@@ -6,7 +6,10 @@ import (
 	"net/http"
 )
 
-func GetProtocolWhaleByAddress(protocol string) {
+type GetWhalesByProtocolReponse struct {
+}
+
+func GetWhalesByProtocol(protocol string) {
 	var limit = 10
 	var offset = 0
 
