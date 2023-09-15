@@ -24,15 +24,14 @@ func GetRequestWithParams(api string, params map[string]string) ([]byte, error) 
 	// Send the GET request
 	response, err := http.Get(parsedURL.String())
 	if err != nil {
-
-		return nil, HandleError(err)
+		return nil, err
 	}
 	defer response.Body.Close()
 
 	// Read the response body
 	responseBody, err := ioutil.ReadAll(response.Body)
 	if err != nil {
-		return nil, HandleError(err)
+		return nil, err
 	}
 
 	return responseBody, nil
