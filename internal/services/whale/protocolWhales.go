@@ -43,3 +43,20 @@ func GetWhalesByProtocol(protocol string) (whales []Whale, err error) {
 	return whales, nil
 
 }
+
+func GetAllProtocolWhales() (protocolWhalesMap map[string][]Whale, err error) {
+
+	for protocol, address := range DefiProtocolAddressMap {
+
+		whales, err := GetWhalesByProtocol(address)
+		if err != nil {
+			return protocolWhalesMap, err
+		}
+
+		protocolWhalesMap[protocol] = whales
+
+	}
+
+	return protocolWhalesMap, nil
+
+}
