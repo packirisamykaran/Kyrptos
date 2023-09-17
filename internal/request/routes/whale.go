@@ -5,6 +5,8 @@ import (
 	"github.com/packirisamykaran/kryptos/internal/request/handlers/whale"
 )
 
-func ProtocolWhalesRoute(r *mux.Router) {
-	r.HandleFunc("/getWhalesByProtocol", whale.GetWhalesByProtocol).Methods("GET")
+func ProtocolWhalesRoutes() *mux.Router {
+	router := mux.NewRouter()
+	router.HandleFunc("/getWhalesByProtocol", whale.GetWhalesByProtocol).Methods("GET")
+	return router
 }

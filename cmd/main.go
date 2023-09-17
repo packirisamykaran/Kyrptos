@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -9,30 +10,27 @@ import (
 )
 
 func main() {
-	// This handler registers a response for the root path "/"
-	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-	// 	fmt.Fprintf(w, "Kryptos Backend is running!")
-	// })
 
 	// Create a new Gorilla Mux router
-	r := mux.NewRouter()
+	router := mux.NewRouter()
+	router.HandleFunc("/", index)
 
 	// Connect all the routes in routes.go to the server
-	routes.ProtocolWhalesRoute(r)
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Kryptos Backend is running!")
-	}).Methods("GET")
+	mount(router, "/whale", routes.ProtocolWhalesRoutes())
+
 	// Use the Gorilla Mux router as the main router
-	http.Handle("/", r)
 
 	// Set up the server address
-	port := "8000" // You mentioned using port 8000
+	port := "8000"
 	serverAddr := fmt.Sprintf(":%s", port)
 	fmt.Printf("Server is running on http://localhost%s\n", serverAddr)
+	log.Fatal(http.ListenAndServe(serverAddr, router))
 
-	// Start the HTTP server
-	err := http.ListenAndServe(serverAddr, nil)
-	if err != nil {
-		fmt.Printf("Server error: %v", err)
-	}
+}
+func mount(r *mux.Router, path string, handler http.Handler) {
+	r.PathPrefix(path).Handler(http.StripPrefix(path, handler))
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Kryptos Backend is running!")
 }
