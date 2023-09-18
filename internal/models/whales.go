@@ -7,3 +7,15 @@ type Whale struct {
 	Owner    string `json:"owner"`
 	Rank     int    `json:"rank"`
 }
+
+type TokenHeld struct {
+	TokenAddress string      `json:"tokenAddress"`
+	TokenAmount  TokenAmount `json:"tokenAmount"`
+}
+
+type TokenAmount struct {
+	Amount         string `json:"amount"`
+	Decimals       int    `json:"decimals"`
+	UiAmount       int    `json:"uiAmount"`
+	UiAmountString string `json:"uiAmountString"`
+}
