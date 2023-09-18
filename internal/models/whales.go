@@ -14,8 +14,8 @@ type TokenHeld struct {
 }
 
 type TokenAmount struct {
-	Amount         string `json:"amount"`
-	Decimals       int    `json:"decimals"`
-	UiAmount       int    `json:"uiAmount"`
-	UiAmountString string `json:"uiAmountString"`
+	Amount         string  `json:"amount"`
+	Decimals       int     `json:"decimals"`
+	UiAmount       float64 `json:"uiAmount"`
+	UiAmountString string  `json:"uiAmountString"`
 }

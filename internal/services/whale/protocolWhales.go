@@ -2,6 +2,7 @@ package whale
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	"github.com/packirisamykaran/kryptos/internal/models"
@@ -26,7 +27,7 @@ func GetWhalesByProtocol(protocol string) (whales []Whale, err error) {
 		"offset":       strconv.Itoa(offset),
 	}
 
-	resBodyByte, err := utils.GetRequestWithParams(SolscanAPI, params)
+	resBodyByte, err := utils.GetRequestWithParams(SolscanTokenHolderAPI, params)
 	if err != nil {
 		return whales, err
 	}
@@ -39,6 +40,11 @@ func GetWhalesByProtocol(protocol string) (whales []Whale, err error) {
 	}
 
 	whales = responseBody.Data
+
+	_, errr := getTokensByOwner(whales[0].Owner)
+	if errr != nil {
+		fmt.Println(utils.HandleError(errr))
+	}
 
 	return whales, nil
 

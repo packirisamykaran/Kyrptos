@@ -1,7 +1,8 @@
 package whale
 
 var (
-	SolscanAPI = "https://public-api.solscan.io/token/holders?"
+	SolscanTokenHolderAPI   = "https://public-api.solscan.io/token/holders?"
+	SolscanAccountTokensAPI = "https://public-api.solscan.io/account/tokens?"
 )
 
 var DefiProtocolAddressMap map[string]string = map[string]string{
