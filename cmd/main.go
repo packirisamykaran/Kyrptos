@@ -38,5 +38,6 @@ func mount(r *mux.Router, path string, handler http.Handler) {
 // index is the handler for the root ("/") route
 func index(w http.ResponseWriter, r *http.Request) {
 	// Respond with a simple message
+
 	fmt.Fprintf(w, "Kryptos Backend is running!")
 }
