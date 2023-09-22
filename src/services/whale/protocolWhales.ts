@@ -1,8 +1,9 @@
 import { error } from "console";
 import { Whale } from "../../models/whaleModels";
-import { defiAddress } from "./constants";
+import { defiAddress, solscanAPI } from "./constants";
+import { getRequest } from "../../utils/httpMethods";
 
-function getWhalesByProtocol(protocol: string): Whale[] {
+export async function getWhalesByProtocol(protocol: string): Promise<Whale[]> {
   let whales: Whale[] = [];
   try {
     let protocolAddress = defiAddress.get(protocol);
@@ -16,6 +17,8 @@ function getWhalesByProtocol(protocol: string): Whale[] {
       limit: 5,
       offset: 0,
     };
+
+    whales = await getRequest(solscanAPI.tokenHolder, params);
   } catch (error) {
     throw error;
   }
