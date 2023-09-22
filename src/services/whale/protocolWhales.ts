@@ -6,9 +6,10 @@ import { getRequest } from "../../utils/httpMethods";
 export async function getWhalesByProtocol(protocol: string): Promise<Whale[]> {
   let whales: Whale[] = [];
   try {
+    console.log(protocol);
     let protocolAddress = defiAddress.get(protocol);
 
-    if (protocolAddress !== undefined) {
+    if (protocolAddress === undefined) {
       throw new Error("Protocol address not found");
     }
 
@@ -20,7 +21,7 @@ export async function getWhalesByProtocol(protocol: string): Promise<Whale[]> {
 
     whales = await getRequest(solscanAPI.tokenHolder, params);
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 
   return whales;
